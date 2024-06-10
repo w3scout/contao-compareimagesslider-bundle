@@ -1,0 +1,53 @@
+{
+    "name": "w3scout/contao-compareimagesslider-bundle",
+    "description": "Compare images with a slider",
+    "keywords": [
+        "contao",
+        "compere images",
+        "slider",
+        "twentytwenty",
+        "before-after",
+        "photography"
+    ],
+    "type": "contao-bundle",
+    "license": "GPL-3.0-or-later",
+    "authors": [
+        {
+            "name": "Darko Selesi",
+            "email": "hallo@w3scouts.com",
+            "homepage": "https://w3scouts.com",
+            "role": "Developer"
+        }
+    ],
+    "support": {
+        "issues": "https://github.com/w3scout/contao-compareimagesslider-bundle/issues",
+        "source": "https://github.com/w3scout/contao-compareimagesslider-bundle"
+    },
+    "require": {
+        "php": "^8.1",
+        "contao/core-bundle": "^4.13 || ^5.3"
+    },
+    "require-dev": {
+        "contao/manager-plugin": "^2.12"
+    },
+    "autoload": {
+        "psr-4": {
+            "W3Scout\\ContaoCompareimagessliderBundle\\": "src/"
+        }
+    },
+    "config": {
+        "allow-plugins": {
+            "contao-components/installer": false,
+            "contao/manager-plugin": false,
+            "contao-community-alliance/composer-plugin": true,
+            "php-http/discovery": false
+        }
+    },
+    "extra": {
+        "contao-manager-plugin": "W3Scout\\ContaoCompareimagessliderBundle\\ContaoManager\\Plugin"
+    },
+    "scripts": {
+        "cs-fixer": "@php tools/ecs/vendor/bin/ecs check config/ contao/ src/ tests/ --config tools/ecs/config.php --fix --ansi",
+        "unit-tests": "@php tools/phpunit/vendor/bin/phpunit -c tools/phpunit/phpunit.xml.dist"
+    }
+}

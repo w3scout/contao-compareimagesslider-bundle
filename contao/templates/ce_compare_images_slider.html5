@@ -1,0 +1,10 @@
+<?php $this->extend('block_searchable'); ?>
+
+<?php $this->block('content'); ?>
+
+    <img-comparison-slider class="compare-images-slider" value="<?= $this->offset_pct ?>" <?= $this->auto_hover ?> <?= $this->vertical_mode ?>>
+        <?= $this->image1 ?>
+        <?= $this->image2 ?>
+    </img-comparison-slider>
+
+<?php $this->endblock(); ?>

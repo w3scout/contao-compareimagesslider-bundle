@@ -1,0 +1,28 @@
+{
+  "name": "contao-compareimagesslider-bundle",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev-server": "encore dev-server --port 3000",
+    "dev": "encore dev --progress --profile",
+    "watch": "encore dev --watch",
+    "build": "encore production --progress --profile"
+  },
+  "author": "Darko Selesi",
+  "license": "ISC",
+  "dependencies": {
+    "img-comparison-slider": "^8.0.6"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.24.7",
+    "@babel/preset-env": "^7.24.7",
+    "@symfony/webpack-encore": "^4.6.1",
+    "browserlist": "^1.0.1",
+    "file-loader": "^6.2.0",
+    "sass": "^1.77.4",
+    "sass-loader": "^14.2.1",
+    "webpack": "^5.91.0",
+    "webpack-cli": "^5.1.4",
+    "webpack-notifier": "^1.15.0"
+  }
+}
