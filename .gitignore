@@ -4,6 +4,10 @@
 # Node.js
 /node_modules
 
+# Encore
+/public/entrypoints.json
+/public/manifest.json
+
 # Tools
 /vendor/
 /tools/*/vendor
