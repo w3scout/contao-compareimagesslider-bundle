@@ -24,7 +24,7 @@
         "source": "https://github.com/w3scout/contao-compareimagesslider-bundle"
     },
     "require": {
-        "php": "^8.2",
+        "php": "^8.3",
         "contao/core-bundle": "^4.13 || ^5.3"
     },
     "require-dev": {
