@@ -2,29 +2,22 @@
 
 declare(strict_types=1);
 
-use Symplify\EasyCodingStandard\Config\ECSConfig;
-use Symplify\EasyCodingStandard\ValueObject\Option;
 use PhpCsFixer\Fixer\Comment\HeaderCommentFixer;
 use PhpCsFixer\Fixer\Whitespace\MethodChainingIndentationFixer;
+use Symplify\EasyCodingStandard\Config\ECSConfig;
 
 return static function (ECSConfig $ecsConfig): void {
-
     if (is_file(__DIR__.'/vendor/contao/easy-coding-standard/config/contao.php')) {
-        //.github/workflows/ci.yaml
+        // CI
         $ecsConfig->sets([__DIR__.'/vendor/contao/easy-coding-standard/config/contao.php']);
     } else {
         // local development
         $ecsConfig->sets([__DIR__.'/../../../../../vendor/contao/easy-coding-standard/config/contao.php']);
     }
 
-    $services = $ecsConfig->services();
-    $services
-        ->set(HeaderCommentFixer::class)
-        ->call('configure', [
-            [
-                'header' => "This file is part of contao-compareimagesslider-bundle.\n\n(c) Darko Selesi ".date('Y')." <hallo@w3scouts.com>\n@license GPL-3.0-or-later\nFor the full copyright and license information,\nplease view the LICENSE file that was distributed with this source code.\n@link https://github.com/w3scout/contao-compareimagesslider-bundle",
-            ],
-        ]);
+    $ecsConfig->ruleWithConfiguration(HeaderCommentFixer::class, [
+        'header' => "This file is part of contao-compareimagesslider-bundle.\n\n(c) Darko Selesi ".date('Y')." <hallo@w3scouts.com>\n@license GPL-3.0-or-later\nFor the full copyright and license information,\nplease view the LICENSE file that was distributed with this source code.\n@link https://github.com/w3scout/contao-compareimagesslider-bundle",
+    ]);
 
     $ecsConfig->skip([
         '*/contao/dca*',
@@ -35,7 +28,4 @@ return static function (ECSConfig $ecsConfig): void {
 
     $ecsConfig->parallel();
     $ecsConfig->lineEnding("\n");
-
-    $parameters = $ecsConfig->parameters();
-    $parameters->set(Option::CACHE_DIRECTORY, sys_get_temp_dir().'/ecs_default_cache');
 };

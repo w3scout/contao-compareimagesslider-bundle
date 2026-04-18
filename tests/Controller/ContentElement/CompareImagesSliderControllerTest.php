@@ -33,40 +33,32 @@ class CompareImagesSliderControllerTest extends ContaoTestCase
     protected function setUp(): void
     {
         parent::setUp();
-        $this->studio = $this->createMock(Studio::class);
+        $this->studio = $this->getMockBuilder(Studio::class)->disableOriginalConstructor()->getMock();
         $this->controller = new CompareImagesSliderController($this->studio);
     }
 
-    /**
-     * Test controller instantiation
-     */
+    // Test controller instantiation
     public function testInstantiation(): void
     {
         $this->assertInstanceOf(CompareImagesSliderController::class, $this->controller);
     }
 
-    /**
-     * Test TYPE constant has the correct value
-     */
+    // Test TYPE constant has the correct value
     public function testTypeConstant(): void
     {
         $this->assertSame('compare_images_slider', CompareImagesSliderController::TYPE);
     }
 
-    /**
-     * Test that Studio service is injected correctly
-     */
+    // Test that Studio service is injected correctly
     public function testStudioIsInjected(): void
     {
-        $studio = $this->createMock(Studio::class);
+        $studio = $this->getMockBuilder(Studio::class)->disableOriginalConstructor()->getMock();
         $controller = new CompareImagesSliderController($studio);
 
         $this->assertInstanceOf(CompareImagesSliderController::class, $controller);
     }
 
-    /**
-     * Test auto_hover attribute: true => 'hover="hover"'
-     */
+    // Test auto_hover attribute: true => 'hover="hover"'
     public function testAutoHoverAttributeIsSetWhenEnabled(): void
     {
         $figureBuilder = $this->createMock(FigureBuilder::class);
@@ -108,9 +100,7 @@ class CompareImagesSliderControllerTest extends ContaoTestCase
         $this->assertSame('hover="hover"', $model->auto_hover ? 'hover="hover"' : '');
     }
 
-    /**
-     * Test auto_hover attribute: false => ''
-     */
+    // Test auto_hover attribute: false => ''
     public function testAutoHoverAttributeIsEmptyWhenDisabled(): void
     {
         $model = $this->mockClassWithProperties(ContentModel::class, [
@@ -120,9 +110,7 @@ class CompareImagesSliderControllerTest extends ContaoTestCase
         $this->assertSame('', $model->auto_hover ? 'hover="hover"' : '');
     }
 
-    /**
-     * Test vertical_mode attribute: true => 'direction="vertical"'
-     */
+    // Test vertical_mode attribute: true => 'direction="vertical"'
     public function testVerticalModeAttributeIsSetWhenEnabled(): void
     {
         $model = $this->mockClassWithProperties(ContentModel::class, [
@@ -132,9 +120,7 @@ class CompareImagesSliderControllerTest extends ContaoTestCase
         $this->assertSame('direction="vertical"', $model->vertical_mode ? 'direction="vertical"' : '');
     }
 
-    /**
-     * Test vertical_mode attribute: false => ''
-     */
+    // Test vertical_mode attribute: false => ''
     public function testVerticalModeAttributeIsEmptyWhenDisabled(): void
     {
         $model = $this->mockClassWithProperties(ContentModel::class, [
