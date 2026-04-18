@@ -18,13 +18,3 @@ use W3Scout\ContaoCompareimagessliderBundle\Controller\ContentElement\CompareIma
  * Content element
  */
 $GLOBALS['TL_LANG']['CTE'][CompareImagesSliderController::TYPE] = ['Compare Images Slider', 'Compare two images with a slider'];
-
-/*
- * Miscellaneous
- */
-// $GLOBALS['TL_LANG']['MSC'][''] = '';
-
-/*
- * Errors
- */
-// $GLOBALS['TL_LANG']['ERR'][''] = '';
