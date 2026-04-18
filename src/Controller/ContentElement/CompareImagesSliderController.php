@@ -45,9 +45,6 @@ class CompareImagesSliderController extends AbstractContentElementController
 
         if($model->singleSRC_before && $model->singleSRC_after)
         {
-            # $rootDir = System::getContainer()->getParameter('kernel.project_dir');
-            # dump($rootDir);
-
             $figure = System::getContainer()
                 ->get('contao.image.studio')
                 ->createFigureBuilder()
