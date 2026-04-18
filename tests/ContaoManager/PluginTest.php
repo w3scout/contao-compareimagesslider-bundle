@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /*
  * This file is part of contao-compareimagesslider-bundle.
  *
@@ -9,7 +11,6 @@
  * please view the LICENSE file that was distributed with this source code.
  * @link https://github.com/w3scout/contao-compareimagesslider-bundle
  */
-declare(strict_types=1);
 
 namespace W3Scout\ContaoCompareimagessliderBundle\Tests\ContaoManager;
 
@@ -20,22 +21,15 @@ use Contao\TestCase\ContaoTestCase;
 use W3Scout\ContaoCompareimagessliderBundle\ContaoManager\Plugin;
 use W3Scout\ContaoCompareimagessliderBundle\W3ScoutContaoCompareimagessliderBundle;
 
-/**
- * @package W3Scout\ContaoCompareimagessliderBundle\Tests\ContaoManager
- */
 class PluginTest extends ContaoTestCase
 {
-    /**
-     * Test Contao manager plugin class instantiation
-     */
+    // Test Contao manager plugin class instantiation
     public function testInstantiation(): void
     {
         $this->assertInstanceOf(Plugin::class, new Plugin());
     }
 
-    /**
-     * Test returns the bundles
-     */
+    // Test returns the bundles
     public function testGetBundles(): void
     {
         $plugin = new Plugin();
@@ -48,5 +42,4 @@ class PluginTest extends ContaoTestCase
         $this->assertSame(W3ScoutContaoCompareimagessliderBundle::class, $bundles[0]->getName());
         $this->assertSame([ContaoCoreBundle::class], $bundles[0]->getLoadAfter());
     }
-
 }

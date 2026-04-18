@@ -12,10 +12,10 @@ declare(strict_types=1);
  * @link https://github.com/w3scout/contao-compareimagesslider-bundle
  */
 
-$GLOBALS['TL_LANG']['tl_content']['config_legend']          = 'Configuration';
+$GLOBALS['TL_LANG']['tl_content']['config_legend'] = 'Configuration';
 
-$GLOBALS['TL_LANG']['tl_content']['singleSRC_before']       = ['Picture Before', 'Please select an image from the file overview.'];
-$GLOBALS['TL_LANG']['tl_content']['singleSRC_after']        = ['Picture After', 'Please select an image from the file overview.'];
-$GLOBALS['TL_LANG']['tl_content']['default_offset_pct']     = ['Distance of the slider from the left edge in %', 'Value between 0 und 100. e.g. 10 = 10%'];
-$GLOBALS['TL_LANG']['tl_content']['auto_hover']             = ['Automatic slide', 'Automatic slide on mouse over'];
-$GLOBALS['TL_LANG']['tl_content']['vertical_mode']          = ['Vertical Mode', ''];
+$GLOBALS['TL_LANG']['tl_content']['singleSRC_before'] = ['Picture Before', 'Please select an image from the file overview.'];
+$GLOBALS['TL_LANG']['tl_content']['singleSRC_after'] = ['Picture After', 'Please select an image from the file overview.'];
+$GLOBALS['TL_LANG']['tl_content']['default_offset_pct'] = ['Distance of the slider from the left edge in %', 'Value between 0 und 100. e.g. 10 = 10%'];
+$GLOBALS['TL_LANG']['tl_content']['auto_hover'] = ['Automatic slide', 'Automatic slide on mouse over'];
+$GLOBALS['TL_LANG']['tl_content']['vertical_mode'] = ['Vertical Mode', ''];
