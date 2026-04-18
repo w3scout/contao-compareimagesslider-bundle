@@ -14,17 +14,17 @@ declare(strict_types=1);
 
 use W3Scout\ContaoCompareimagessliderBundle\Controller\ContentElement\CompareImagesSliderController;
 
-/**
+/*
  * Content element
  */
 $GLOBALS['TL_LANG']['CTE'][CompareImagesSliderController::TYPE] = ['Compare Images Slider', 'Compare two images with a slider'];
 
-/**
+/*
  * Miscellaneous
  */
 //$GLOBALS['TL_LANG']['MSC'][''] = '';
 
-/**
+/*
  * Errors
  */
 //$GLOBALS['TL_LANG']['ERR'][''] = '';

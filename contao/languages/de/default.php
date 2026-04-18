@@ -14,7 +14,7 @@ declare(strict_types=1);
 
 use W3Scout\ContaoCompareimagessliderBundle\Controller\ContentElement\CompareImagesSliderController;
 
-/**
+/*
  * Content element
  */
 $GLOBALS['TL_LANG']['CTE'][CompareImagesSliderController::TYPE] = ['Bildervergleichs-Slider', 'Vergleichen Sie zwei Bilder mittes eines Sliders miteinander.'];
