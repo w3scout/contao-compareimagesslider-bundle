@@ -14,16 +14,16 @@ declare(strict_types=1);
 
 namespace W3Scout\ContaoCompareimagessliderBundle\Controller\ContentElement;
 
+use Contao\ContentModel;
 use Contao\CoreBundle\Controller\ContentElement\AbstractContentElementController;
 use Contao\CoreBundle\DependencyInjection\Attribute\AsContentElement;
 use Contao\CoreBundle\Image\Studio\Studio;
-use Contao\ContentModel;
-use Contao\Template;
 use Contao\FrontendTemplate;
+use Contao\Template;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
-#[AsContentElement(category:'media', template:'ce_compare_images_slider')]
+#[AsContentElement(category: 'media', template: 'ce_compare_images_slider')]
 class CompareImagesSliderController extends AbstractContentElementController
 {
     public const TYPE = 'compare_images_slider';
@@ -35,15 +35,14 @@ class CompareImagesSliderController extends AbstractContentElementController
 
     protected function getResponse(Template $template, ContentModel $model, Request $request): Response
     {
-
-        if($model->singleSRC_before && $model->singleSRC_after)
-        {
+        if ($model->singleSRC_before && $model->singleSRC_after) {
             $figure = $this->studio
                 ->createFigureBuilder()
                 ->from($model->singleSRC_before)
                 ->setSize($model->size)
                 ->setOptions(['img_attr' => 'slot="first"'])
-                ->buildIfResourceExists();
+                ->buildIfResourceExists()
+            ;
 
             $image = new FrontendTemplate('image_compare');
             $figure?->applyLegacyTemplateData($image);
@@ -54,18 +53,19 @@ class CompareImagesSliderController extends AbstractContentElementController
                 ->from($model->singleSRC_after)
                 ->setSize($model->size)
                 ->setOptions(['img_attr' => 'slot="second"'])
-                ->buildIfResourceExists();
+                ->buildIfResourceExists()
+            ;
 
             $image = new FrontendTemplate('image_compare');
             $figure?->applyLegacyTemplateData($image);
             $template->image2 = $image->parse();
 
-            $template->offset_pct       = $model->default_offset_pct;
-            $template->auto_hover       = $model->auto_hover ? 'hover="hover"' : '';
-            $template->vertical_mode    = $model->vertical_mode ? 'direction="vertical"' : '';
+            $template->offset_pct = $model->default_offset_pct;
+            $template->auto_hover = $model->auto_hover ? 'hover="hover"' : '';
+            $template->vertical_mode = $model->vertical_mode ? 'direction="vertical"' : '';
 
-            $GLOBALS['TL_BODY'][]       = '<script src="bundles/w3scoutcontaocompareimagesslider/app.js"></script>';
-            $GLOBALS['TL_CSS'][]        = 'bundles/w3scoutcontaocompareimagesslider/app.css';
+            $GLOBALS['TL_BODY'][] = '<script src="bundles/w3scoutcontaocompareimagesslider/app.js"></script>';
+            $GLOBALS['TL_CSS'][] = 'bundles/w3scoutcontaocompareimagesslider/app.css';
         }
 
         return $template->getResponse();

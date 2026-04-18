@@ -22,9 +22,9 @@ $GLOBALS['TL_LANG']['CTE'][CompareImagesSliderController::TYPE] = ['Compare Imag
 /*
  * Miscellaneous
  */
-//$GLOBALS['TL_LANG']['MSC'][''] = '';
+// $GLOBALS['TL_LANG']['MSC'][''] = '';
 
 /*
  * Errors
  */
-//$GLOBALS['TL_LANG']['ERR'][''] = '';
+// $GLOBALS['TL_LANG']['ERR'][''] = '';

@@ -20,13 +20,13 @@ use Contao\CoreBundle\Image\Studio\FigureBuilder;
 use Contao\CoreBundle\Image\Studio\Studio;
 use Contao\Template;
 use Contao\TestCase\ContaoTestCase;
-use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use W3Scout\ContaoCompareimagessliderBundle\Controller\ContentElement\CompareImagesSliderController;
 
 class CompareImagesSliderControllerTest extends ContaoTestCase
 {
     private Studio $studio;
+
     private CompareImagesSliderController $controller;
 
     #[\Override]
@@ -64,39 +64,68 @@ class CompareImagesSliderControllerTest extends ContaoTestCase
         $figureBuilder = $this->createMock(FigureBuilder::class);
         $figure = $this->createMock(Figure::class);
 
-        $figureBuilder->method('from')->willReturnSelf();
-        $figureBuilder->method('setSize')->willReturnSelf();
-        $figureBuilder->method('setOptions')->willReturnSelf();
-        $figureBuilder->method('buildIfResourceExists')->willReturn($figure);
+        $figureBuilder
+            ->method('from')
+            ->willReturnSelf()
+        ;
 
-        $figure->method('applyLegacyTemplateData')->willReturn(null);
+        $figureBuilder
+            ->method('setSize')
+            ->willReturnSelf()
+        ;
 
-        $this->studio->method('createFigureBuilder')->willReturn($figureBuilder);
+        $figureBuilder
+            ->method('setOptions')
+            ->willReturnSelf()
+        ;
+
+        $figureBuilder
+            ->method('buildIfResourceExists')
+            ->willReturn($figure)
+        ;
+
+        $figure
+            ->method('applyLegacyTemplateData')
+            ->willReturn(null)
+        ;
+
+        $this->studio
+            ->method('createFigureBuilder')
+            ->willReturn($figureBuilder)
+        ;
 
         $model = $this->mockClassWithProperties(ContentModel::class, [
             'singleSRC_before' => 'uuid-before',
-            'singleSRC_after'  => 'uuid-after',
-            'size'             => null,
+            'singleSRC_after' => 'uuid-after',
+            'size' => null,
             'default_offset_pct' => '50',
-            'auto_hover'       => true,
-            'vertical_mode'    => false,
+            'auto_hover' => true,
+            'vertical_mode' => false,
         ]);
 
         $template = $this->createMock(Template::class);
-        $template->method('getResponse')->willReturn(new Response());
+        $template
+            ->method('getResponse')
+            ->willReturn(new Response())
+        ;
 
-        $this->studio->method('createFigureBuilder')->willReturn($figureBuilder);
+        $this->studio
+            ->method('createFigureBuilder')
+            ->willReturn($figureBuilder)
+        ;
 
         // Use reflection to call the protected getResponse() method
         $reflection = new \ReflectionMethod($this->controller, 'getResponse');
         $reflection->setAccessible(true);
 
-        $template->expects($this->exactly(1))
+        $template
+            ->expects($this->exactly(1))
             ->method('__set')
-            ->with('auto_hover', 'hover="hover"');
+            ->with('auto_hover', 'hover="hover"')
+        ;
 
-        // Note: full invocation test requires Contao framework bootstrap
-        // This test verifies the auto_hover string mapping logic
+        // Note: full invocation test requires Contao framework bootstrap This test
+        // verifies the auto_hover string mapping logic
         $this->assertSame('hover="hover"', $model->auto_hover ? 'hover="hover"' : '');
     }
 
