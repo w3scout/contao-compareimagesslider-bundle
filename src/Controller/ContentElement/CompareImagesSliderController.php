@@ -74,7 +74,7 @@ class CompareImagesSliderController extends AbstractContentElementController
 
             $template->offset_pct       = $model->default_offset_pct;
             $template->auto_hover       = $model->auto_hover ? 'hover="hover"' : '';
-            $template->vertical_mode    = $model->vertical_mode ? 'direction="vertical"' : '';;
+            $template->vertical_mode    = $model->vertical_mode ? 'direction="vertical"' : '';
 
             $GLOBALS['TL_BODY'][]       = '<script src="bundles/w3scoutcontaocompareimagesslider/app.js"></script>';
             $GLOBALS['TL_CSS'][]        = 'bundles/w3scoutcontaocompareimagesslider/app.css';
