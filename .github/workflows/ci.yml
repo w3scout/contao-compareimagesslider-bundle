@@ -23,8 +23,8 @@ jobs:
             -   name: Install ecs
                 run: cd tools/ecs && composer update --no-interaction
 
-            -   name: Run the CS fixer
-                run: composer cs-fixer
+            -   name: Run the CS check
+                run: composer cs-check
 
     tests:
         name: PHP ${{ matrix.php }}
