@@ -116,6 +116,8 @@ jobs:
             -   name: Add bundle as path repository
                 run: |
                     cd contao
+                    composer config minimum-stability dev
+                    composer config prefer-stable true
                     composer config repositories.bundle path ../bundle
                     composer require w3scout/contao-compareimagesslider-bundle:* --no-interaction
 
