@@ -29,6 +29,7 @@ class CompareImagesSliderControllerTest extends ContaoTestCase
     private Studio $studio;
     private CompareImagesSliderController $controller;
 
+    #[\Override]
     protected function setUp(): void
     {
         parent::setUp();
