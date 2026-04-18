@@ -8,6 +8,9 @@
     "config": {
         "audit": {
             "abandoned": "ignore"
+        },
+        "allow-plugins": {
+            "contao-components/installer": true
         }
     }
 }
